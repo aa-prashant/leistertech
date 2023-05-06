@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include leistertech *.css
+recursive-include leistertech *.csv
+recursive-include leistertech *.html
+recursive-include leistertech *.ico
+recursive-include leistertech *.js
+recursive-include leistertech *.json
+recursive-include leistertech *.md
+recursive-include leistertech *.png
+recursive-include leistertech *.py
+recursive-include leistertech *.svg
+recursive-include leistertech *.txt
+recursive-exclude leistertech *.pyc
