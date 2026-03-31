@@ -1,4 +1,7 @@
 from . import __version__ as app_version
+from .compat import apply_v16_patches
+
+apply_v16_patches()
 
 app_name = "leistertech"
 app_title = "leistertech"
