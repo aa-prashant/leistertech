@@ -107,7 +107,11 @@ app_license = "MIT"
 
 doc_events = {
     "Production Plan": {"validate": "leistertech.api.on_validate"},
-    "Material Request": {"validate": "leistertech.api.update_material_request"},
+    "Material Request": {
+        "validate": "leistertech.api.update_material_request",
+        "on_update": "leistertech.api.sync_material_request_parent_links",
+        "on_update_after_submit": "leistertech.api.sync_material_request_parent_links",
+    },
 }
 
 # Scheduled Tasks
@@ -132,7 +136,9 @@ doc_events = {
 # }
 
 
-scheduler_events = {"hourly": ["leistertech.api.update_existing_material_request"]}
+# `update_existing_material_request` is a one-time repair/backfill. Running it
+# hourly touches old transactions repeatedly and can bloat Version/Comment.
+# scheduler_events = {"hourly": ["leistertech.api.update_existing_material_request"]}
 
 # Testing
 # -------
